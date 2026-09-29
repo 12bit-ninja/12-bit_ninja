@@ -1,1 +1,6 @@
-Header set Access-Control-Allow-Origin "https://12bitninja.com"
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://12bitninja.com%{REQUEST_URI} [L,R=301]
+</IfModule>
