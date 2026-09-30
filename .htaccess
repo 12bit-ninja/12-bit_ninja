@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://12bitninja.com%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP_HOST} ^www\.12bitninja\.com$ [NC]
+    RewriteRule ^ https://12bitninja.com%{REQUEST_URI} [L,R=301]
+</IfModule>
